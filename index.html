@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Pessoal de Finanças</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Controle Financeiro Pessoal</h1>
+            <p>Gerencie seus salários e despesas</p>
+        </header>
+
+        <main class="main-content">
+            <section class="summary-section">
+                <h2>Resumo Financeiro</h2>
+                <div class="summary-wrapper">
+                    <div class="summary-cards">
+                        <div class="card salary-card">
+                            <h3>Salário</h3>
+                            <p class="value" id="salaryDisplay">R$ 0,00</p>
+                        </div>
+                        <div class="card expenses-card">
+                            <h3>Total de Despesas</h3>
+                            <p class="value" id="expensesDisplay">R$ 0,00</p>
+                        </div>
+                        <div class="card balance-card">
+                            <h3>Saldo Final</h3>
+                            <p class="value" id="balanceDisplay">R$ 0,00</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-wrapper">
+                <section class="form-section">
+                    <h2>Cadastrar Salário</h2>
+                    <form id="salaryForm">
+                        <div class="form-group">
+                            <label for="salaryInput">Valor do Salário (R$)</label>
+                            <input
+                                type="number"
+                                id="salaryInput"
+                                placeholder="Digite o valor do salário"
+                                min="0"
+                                step="0.01"
+                                required
+                            >
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar Salário</button>
+                    </form>
+                </section>
+                <section class="form-section">
+                    <h2>Cadastrar Despesa</h2>
+                    <form id="expenseForm">
+                        <div class="form-group">
+                            <label for="expenseDate">Data</label>
+                            <input
+                                type="date"
+                                id="expenseDate"
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="expenseName">Nome da Despesa</label>
+                            <input
+                                type="text"
+                                id="expenseName"
+                                placeholder="Ex: Aluguel, Alimentação, Transporte"
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="expenseValue">Valor (R$)</label>
+                            <input
+                                type="number"
+                                id="expenseValue"
+                                placeholder="Digite o valor da despesa"
+                                min="0"
+                                step="0.01"
+                                required
+                            >
+                        </div>
+                        <button type="submit" class="btn btn-success">Adicionar Despesa</button>
+                    </form>
+                </section>
+            </div>
+
+            <section class="list-section">
+                <div class="list-header">
+                    <h2>Despesas Registradas</h2>
+                    <button id="clearAllBtn" class="btn btn-danger btn-small">Limpar Tudo</button>
+                </div>
+                <div id="expensesList" class="expenses-list">
+                    <p class="empty-message">Nenhuma despesa registrada ainda</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Controle Financeiro Pessoal</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
